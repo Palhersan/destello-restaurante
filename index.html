@@ -148,7 +148,7 @@
   .hero-sub { font-family: 'Spectral', serif; font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-style: italic; color: var(--text-muted); margin-bottom: 2rem; position: relative; z-index: 1; }
 
   .premium-img { width: 100%; max-width: 100%; height: auto; border-radius: var(--radius); object-fit: cover; box-shadow: 0 10px 25px rgba(29, 43, 56, 0.1); margin: 0 auto; display: block; }
-  .carta-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 0; margin-bottom: 3rem; border-bottom: 1px solid var(--border); }
+  .carta-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 0; margin-bottom: 4rem; border-bottom: 1px solid var(--border); }
   .tab-btn { background: transparent; border: none; color: var(--text-muted); font-family: 'Karla', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 1rem 2rem; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.3s, border-color 0.3s; }
   .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
   .tab-btn:hover { color: var(--text-main); }
@@ -315,12 +315,12 @@
 
 <section id="carta" style="background: var(--bg-alt);">
   <div class="content-wrapper" style="margin-bottom: 4rem;">
-    <p class="section-label">Tradición y modernidad</p>
+    <p class="section-label">Nuestra propuesta</p>
     <h2 class="section-title">La <em>Carta</em></h2>
     <div class="divider"></div>
-    <button class="explicit-audio-btn" onclick="speakText('Nuestra carta completa incluye entrantes y clásicos españoles, principales de temporada, postres artesanos y una selección de bebidas elegidas para acompañar cada plato.', 'La Carta')">
+    <button class="explicit-audio-btn" onclick="speakText('Nuestra carta. Entrantes desde 8 euros, Principales desde 18 euros, Postres desde 7 euros. Disponemos de amplia carta de vinos y bebidas.', 'La Carta')">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-      Escuchar la carta
+      Escuchar resumen
     </button>
   </div>
 
@@ -334,31 +334,18 @@
   <div class="tab-content active" id="tab-entrantes">
     <div class="menu-grid">
       <div class="menu-category">
-        <div class="menu-cat-title">Entrantes</div>
-        <div class="menu-item">
-          <div>
-            <div class="menu-item-name">Croquetas de jamón ibérico</div>
-            <div class="menu-item-desc">Bechamel suave con crujiente panko y jamón de bellota.</div>
-          </div>
-          <div class="menu-item-price">14€</div>
-        </div>
-        <div class="menu-item">
-          <div>
-            <div class="menu-item-name">Tabla de ibéricos</div>
-            <div class="menu-item-desc">Selección de jabugo, lomo y salchichón con pan de cristal.</div>
-          </div>
-          <div class="menu-item-price">16€</div>
-        </div>
+        <div class="menu-cat-title">Para compartir</div>
+        <div class="menu-item"><div><div class="menu-item-name">Croquetas de jamón ibérico</div><div class="menu-item-desc">Bechamel cremosa, jamón de bellota, fritura perfecta. 6 uds.</div></div><div class="menu-item-price">14€</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Tabla de ibéricos</div><div class="menu-item-desc">Selección de jamón, salchichón y chorizo curado con pan de cristal.</div></div><div class="menu-item-price">22€</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Patatas bravas Destello</div><div class="menu-item-desc">Salsa ahumada de pimiento con alioli de ajo negro.</div></div><div class="menu-item-price">9€</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Ensaladilla rusa a la antigua</div><div class="menu-item-desc">Atún de aleta amarilla, mayonesa casera y aceitunas manzanilla.</div></div><div class="menu-item-price">11€</div></div>
       </div>
       <div class="menu-category">
-        <div class="menu-cat-title">Clásicos</div>
-        <div class="menu-item">
-          <div>
-            <div class="menu-item-name">Ensaladilla Rusa Moderna</div>
-            <div class="menu-item-desc">Ventresca de atún, pimientos asados y polvo de aceituna negra.</div>
-          </div>
-          <div class="menu-item-price">15€</div>
-        </div>
+        <div class="menu-cat-title">Sopas y ensaladas</div>
+        <div class="menu-item"><div><div class="menu-item-name">Gazpacho andaluz</div><div class="menu-item-desc">Tomate de la huerta, aceite virgen extra de la Sierra Sur de Jaén.</div></div><div class="menu-item-price">8€</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Caldo de puchero madrileño</div><div class="menu-item-desc">Cocinado a fuego lento con garbanzos, zanahoria y hierbabuena.</div></div><div class="menu-item-price">10€</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Ensalada de temporada</div><div class="menu-item-desc">Lechugas variadas, tomate cherry, anchoa del Cantábrico.</div></div><div class="menu-item-price">12€</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Pimientos del piquillo rellenos</div><div class="menu-item-desc">Rellenos de bacalao con su pilpil, gratinados al momento.</div></div><div class="menu-item-price">13€</div></div>
       </div>
     </div>
   </div>
@@ -366,31 +353,18 @@
   <div class="tab-content" id="tab-principales">
     <div class="menu-grid">
       <div class="menu-category">
-        <div class="menu-cat-title">Principales</div>
-        <div class="menu-item">
-          <div>
-            <div class="menu-item-name">Cocido madrileño</div>
-            <div class="menu-item-desc">Fondo lento con garbanzos, verduras y carne de primera.</div>
-          </div>
-          <div class="menu-item-price">22€</div>
-        </div>
-        <div class="menu-item">
-          <div>
-            <div class="menu-item-name">Bacalao al Pil-Pil</div>
-            <div class="menu-item-desc">Lomo desalado con emulsión de ajos negros y guindilla dulce.</div>
-          </div>
-          <div class="menu-item-price">24€</div>
-        </div>
+        <div class="menu-cat-title">Carnes</div>
+        <div class="menu-item"><div><div class="menu-item-name">Cocido madrileño completo</div><div class="menu-item-desc">Tres vuelcos: sopa, garbanzos y carnes. Plato emblema de la casa.</div></div><div class="menu-item-price">26€</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Cordero asado a la manchega</div><div class="menu-item-desc">Cuarto trasero al horno de leña, con patatas panadera.</div></div><div class="menu-item-price">28€</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Carrilleras de cerdo ibérico</div><div class="menu-item-desc">Guisadas en vino tinto con puré de patata trufado.</div></div><div class="menu-item-price">22€</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Pollo de corral a la brasa</div><div class="menu-item-desc">Medio pollo con chimichurri de hierbas y patatas fritas.</div></div><div class="menu-item-price">18€</div></div>
       </div>
       <div class="menu-category">
-        <div class="menu-cat-title">Carnes</div>
-        <div class="menu-item">
-          <div>
-            <div class="menu-item-name">Solomillo de Retinto</div>
-            <div class="menu-item-desc">Reducción de vino tinto, puré trufado y setas de temporada.</div>
-          </div>
-          <div class="menu-item-price">28€</div>
-        </div>
+        <div class="menu-cat-title">Pescados</div>
+        <div class="menu-item"><div><div class="menu-item-name">Bacalao al pil-pil</div><div class="menu-item-desc">Lomo de bacalao confitado con su gelatina natural y ajo.</div></div><div class="menu-item-price">24€</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Merluza en salsa verde</div><div class="menu-item-desc">Con almejas de Carril, guisantes y perejil fresco.</div></div><div class="menu-item-price">23€</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Dorada a la sal</div><div class="menu-item-desc">Cocinada entera en costra de sal marina, servida en sala.</div></div><div class="menu-item-price">25€</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Pulpo a la gallega</div><div class="menu-item-desc">Sobre cachelos, aceite de oliva virgen, pimentón de La Vera.</div></div><div class="menu-item-price">21€</div></div>
       </div>
     </div>
   </div>
@@ -398,21 +372,15 @@
   <div class="tab-content" id="tab-postres">
     <div class="menu-grid">
       <div class="menu-category">
-        <div class="menu-cat-title">Postres</div>
-        <div class="menu-item">
-          <div>
-            <div class="menu-item-name">Torrija de brioche</div>
-            <div class="menu-item-desc">Caramelizada con crema de vainilla y naranja confitada.</div>
-          </div>
-          <div class="menu-item-price">10€</div>
-        </div>
-        <div class="menu-item">
-          <div>
-            <div class="menu-item-name">Crema de queso y frutos rojos</div>
-            <div class="menu-item-desc">Textura sedosa con compota de frutos rojos y crumble de almendra.</div>
-          </div>
-          <div class="menu-item-price">9€</div>
-        </div>
+        <div class="menu-cat-title">Dulces de la casa</div>
+        <div class="menu-item"><div><div class="menu-item-name">Torrija caramelizada</div><div class="menu-item-desc">Brioche empapado, helado de vainilla y miel de azahar.</div></div><div class="menu-item-price">9€</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Flan de huevo artesano</div><div class="menu-item-desc">La receta de siempre, con caramelo líquido y nata fresca.</div></div><div class="menu-item-price">7€</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Tarta de queso manchego</div><div class="menu-item-desc">Textura cremosa, mermelada de tomate y tomillo.</div></div><div class="menu-item-price">8€</div></div>
+      </div>
+      <div class="menu-category">
+        <div class="menu-cat-title">Más postres</div>
+        <div class="menu-item"><div><div class="menu-item-name">Crema catalana Destello</div><div class="menu-item-desc">Con cáscara de naranja, canela y azúcar quemado al momento.</div></div><div class="menu-item-price">7€</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Selección de quesos españoles</div><div class="menu-item-desc">Manchego curado, Idiazábal, Cabrales y membrillo artesano.</div></div><div class="menu-item-price">14€</div></div>
       </div>
     </div>
   </div>
@@ -421,37 +389,17 @@
     <div class="menu-grid">
       <div class="menu-category">
         <div class="menu-cat-title">Vinos</div>
-        <div class="menu-item">
-          <div>
-            <div class="menu-item-name">Vino tinto reserva</div>
-            <div class="menu-item-desc">Notas de frutos negros y especias, copa perfecta para carnes.</div>
-          </div>
-          <div class="menu-item-price">12€</div>
-        </div>
-        <div class="menu-item">
-          <div>
-            <div class="menu-item-name">Copa de champán</div>
-            <div class="menu-item-desc">Fresco y elegante, ideal para iniciar o brindar.</div>
-          </div>
-          <div class="menu-item-price">14€</div>
-        </div>
+        <div class="menu-item"><div><div class="menu-item-name">Vino de la casa (blanco / tinto)</div><div class="menu-item-desc">Selección del sumiller, D.O. española.</div></div><div class="menu-item-price">5€</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Rioja Reserva</div><div class="menu-item-desc">Tempranillo envejecido 24 meses en barrica.</div></div><div class="menu-item-price">28€</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Albariño Rías Baixas</div><div class="menu-item-desc">Perfecto acompañamiento para pescados.</div></div><div class="menu-item-price">26€</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Cava Brut Nature</div><div class="menu-item-desc">Elaborado en el Penedès.</div></div><div class="menu-item-price">22€</div></div>
       </div>
       <div class="menu-category">
         <div class="menu-cat-title">Sin alcohol</div>
-        <div class="menu-item">
-          <div>
-            <div class="menu-item-name">Agua mineral</div>
-            <div class="menu-item-desc">Selección natural o con gas.</div>
-          </div>
-          <div class="menu-item-price">4€</div>
-        </div>
-        <div class="menu-item">
-          <div>
-            <div class="menu-item-name">Limonada casera</div>
-            <div class="menu-item-desc">Refrescante con hierbabuena y toque de miel.</div>
-          </div>
-          <div class="menu-item-price">6€</div>
-        </div>
+        <div class="menu-item"><div><div class="menu-item-name">Agua mineral</div><div class="menu-item-desc">Natural o con gas (75 cl).</div></div><div class="menu-item-price">3€</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Refrescos</div><div class="menu-item-desc">Selección de refrescos y zumos.</div></div><div class="menu-item-price">3,50€</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Café y té</div><div class="menu-item-desc">Café de origen único, infusiones.</div></div><div class="menu-item-price">2,50€</div></div>
+        <div class="menu-item"><div><div class="menu-item-name">Mosto tinto / Blanco</div><div class="menu-item-desc">Zumo de uva español sin fermentar.</div></div><div class="menu-item-price">4€</div></div>
       </div>
     </div>
   </div>
