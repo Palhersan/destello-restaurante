@@ -156,6 +156,9 @@
   .tab-content.active { display: block; }
   @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
+  .notif { position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(150px); background: var(--text-main); color: var(--bg-main); padding: 16px 32px; font-family: 'Karla', sans-serif; font-size: 0.95rem; font-weight: 700; border-radius: 50px; z-index: 3000; transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); white-space: nowrap; box-shadow: 0 10px 30px rgba(29, 43, 56, 0.3); pointer-events: none; }
+  .notif.show { transform: translateX(-50%) translateY(0); }
+
   /* ── CARTA Y MENÚ ── */
   .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1000px; margin: 0 auto; text-align: left;}
   .menu-category { margin-bottom: 3rem; }
@@ -452,12 +455,14 @@
         <span style="font-size: 1.2rem;">🐾</span>
         <span style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent);">Dog Friendly</span>
       </div>
-      <div style="display: flex; align-items: center; gap: 10px; background: var(--text-main); color: #fff; padding: 10px 20px; border-radius: 50px;">
+      <button onclick="handleReserva()" style="display: flex; align-items: center; gap: 10px; background: var(--text-main); color: #fff; padding: 12px 28px; border-radius: 50px; border: none; cursor: pointer; transition: transform 0.3s ease, background 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.background='var(--accent)';" onmouseout="this.style.transform='translateY(0)'; this.style.background='var(--text-main)';">
         <span style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">Reserva Online</span>
-      </div>
+      </button>
     </div>
   </div>
 </section>
+
+<div class="notif" id="notif"></div>
 
 <footer id="contacto">
   <div class="footer-left">
@@ -560,6 +565,17 @@
     document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
     document.getElementById('tab-' + name).classList.add('active');
     btn.classList.add('active');
+  }
+
+  function showNotif(msg) {
+    const n = document.getElementById('notif');
+    n.textContent = msg;
+    n.classList.add('show');
+    setTimeout(() => n.classList.remove('show'), 3500);
+  }
+
+  function handleReserva() {
+    showNotif('¡Reserva solicitada! Te contactaremos pronto para confirmar.');
   }
 
   function stopAudio() {
