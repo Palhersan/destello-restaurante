@@ -1,0 +1,32 @@
+<svg width="1200" height="1500" viewBox="0 0 1200 1500" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="heroTitle heroDesc">
+  <title id="heroTitle">Cena inclusiva y elegante en Destello</title>
+  <desc id="heroDesc">Ilustración editorial de un grupo diverso cenando en un restaurante luminoso con tonos blancos y azules. Un bastón elegante apoyado y manos compartiendo un plato.</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f7fbff"/>
+      <stop offset="100%" stop-color="#e6eff8"/>
+    </linearGradient>
+    <linearGradient id="plateGlow" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.9"/>
+      <stop offset="100%" stop-color="#c8d8ed" stop-opacity="0.3"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="1500" fill="url(#bg)"/>
+  <rect x="120" y="200" width="960" height="900" rx="60" fill="#ffffff" opacity="0.95"/>
+  <path d="M180 750 C 220 670 320 620 420 660 C 520 700 620 640 680 610 C 760 580 840 620 920 700" fill="none" stroke="#00509e" stroke-width="18" stroke-linecap="round" opacity="0.35"/>
+  <g transform="translate(160 240)">
+    <ellipse cx="350" cy="540" rx="260" ry="130" fill="url(#plateGlow)"/>
+    <circle cx="350" cy="520" r="70" fill="#d1e6fb"/>
+    <path d="M320 520 Q350 470 380 520 Q350 540 320 520" fill="#fff" opacity="0.8"/>
+    <path d="M390 520 L460 520" stroke="#0b2447" stroke-width="10" stroke-linecap="round"/>
+    <path d="M200 340 C 220 320 280 300 340 320 C 400 340 480 340 520 320" fill="none" stroke="#19376d" stroke-width="16" stroke-linecap="round"/>
+    <circle cx="290" cy="360" r="30" fill="#0b2447"/>
+    <circle cx="500" cy="360" r="30" fill="#0b2447"/>
+    <rect x="540" y="410" width="100" height="14" rx="7" fill="#0b2447"/>
+    <rect x="580" y="460" width="12" height="120" rx="6" fill="#0b2447" transform="rotate(12 586 520)"/>
+    <path d="M650 500 C 660 460 690 450 720 470" stroke="#0b2447" stroke-width="16" fill="none" stroke-linecap="round"/>
+    <path d="M420 260 L520 280 C 560 290 590 320 620 360" stroke="#00509e" stroke-width="18" fill="none" stroke-linecap="round" opacity="0.6"/>
+    <path d="M240 420 C 230 470 210 500 190 540" stroke="#0b2447" stroke-width="18" fill="none" stroke-linecap="round"/>
+  </g>
+  <text x="140" y="1310" fill="#19376d" font-family="Spectral, serif" font-size="80" font-weight="700">Destello | Inclusión que se vive</text>
+</svg>

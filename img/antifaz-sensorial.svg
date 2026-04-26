@@ -1,0 +1,35 @@
+<svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="maskTitle maskDesc">
+  <title id="maskTitle">Antifaz sensorial en mesa elegante</title>
+  <desc id="maskDesc">Ilustración editorial de un antifaz azul marino sobre mantel blanco de lino con cubiertos plateados, tono minimalista y lujoso.</desc>
+  <defs>
+    <linearGradient id="canvas" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#e5eef8"/>
+    </linearGradient>
+    <linearGradient id="maskGrad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#022b56"/>
+      <stop offset="100%" stop-color="#113d77"/>
+    </linearGradient>
+    <filter id="softGlow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="20" result="blur"/>
+      <feMerge><feMergeNode in="blur"/><feMergeNode in="SourceGraphic"/></feMerge>
+    </filter>
+  </defs>
+  <rect width="1200" height="900" fill="url(#canvas)"/>
+  <rect x="80" y="80" width="1040" height="740" rx="60" fill="#f8fbff" stroke="#c7d7eb" stroke-width="4"/>
+  <ellipse cx="600" cy="510" rx="420" ry="180" fill="#ffffff" opacity="0.95"/>
+  <path d="M360 520 Q600 320 840 520 Q760 600 600 520 Q440 600 360 520 Z" fill="url(#maskGrad)" filter="url(#softGlow)"/>
+  <path d="M360 520 Q600 300 840 520" fill="none" stroke="#0b2447" stroke-width="24" stroke-linecap="round"/>
+  <path d="M440 520 Q600 390 760 520" fill="none" stroke="#ffffff" stroke-width="12" opacity="0.7"/>
+  <circle cx="390" cy="500" r="18" fill="#fff" opacity="0.65"/>
+  <circle cx="810" cy="500" r="18" fill="#fff" opacity="0.65"/>
+  <path d="M360 520 C 320 560 280 640 300 700" stroke="#0b2447" stroke-width="18" fill="none" stroke-linecap="round"/>
+  <path d="M840 520 C 880 560 920 640 900 700" stroke="#0b2447" stroke-width="18" fill="none" stroke-linecap="round"/>
+  <rect x="260" y="240" width="680" height="140" rx="20" fill="#f5f7fb"/>
+  <line x1="280" y1="280" x2="900" y2="280" stroke="#c7d7eb" stroke-width="8"/>
+  <path d="M920 380 L1060 320" stroke="#b0c9e5" stroke-width="18" stroke-linecap="round"/>
+  <path d="M920 460 L1060 520" stroke="#b0c9e5" stroke-width="18" stroke-linecap="round"/>
+  <rect x="920" y="300" width="110" height="20" rx="10" fill="#c7d7eb"/>
+  <rect x="920" y="460" width="110" height="20" rx="10" fill="#c7d7eb"/>
+  <text x="140" y="820" fill="#19376d" font-family="Spectral, serif" font-size="64" font-weight="700">Lujo sensorial, calma y minimalismo</text>
+</svg>
