@@ -129,17 +129,18 @@
   .ai-prompt-text { font-family: 'Spectral', serif; font-size: 1.2rem; font-style: italic; color: var(--text-main); line-height: 1.5; max-width: 90%; }
 
   /* ── FOOTER ── */
-  footer#contacto { background: var(--bg-alt); padding: 4rem 5%; display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: flex-start; border-top: 1px solid var(--border); }
-  footer#contacto .footer-left, footer#contacto .footer-right { min-width: 0; }
-  footer#contacto .footer-logo { font-family: 'Spectral', serif; font-size: 2rem; font-weight: 700; color: var(--accent); letter-spacing: 0.15em; margin-bottom: 1rem; }
-  footer#contacto .footer-text { color: var(--text-muted); line-height: 1.8; margin-bottom: 1.75rem; }
-  footer#contacto .footer-pills { display: inline-flex; align-items: center; gap: 0.75rem; background: #ffffff; border: 1px solid var(--border); padding: 0.85rem 1rem; border-radius: 999px; color: var(--text-main); font-weight: 700; }
-  footer#contacto .footer-links { list-style: none; padding: 0; margin: 0; display: grid; gap: 0.75rem; }
-  footer#contacto .footer-links a { color: var(--text-main); text-decoration: none; font-weight: 700; opacity: 0.85; transition: opacity 0.3s, color 0.3s; }
-  footer#contacto .footer-links a:hover { opacity: 1; color: var(--accent); }
-  footer#contacto .footer-address { margin-top: 2rem; color: var(--text-muted); line-height: 1.7; }
-  footer#contacto .footer-bottom { margin-top: 3rem; border-top: 1px solid var(--border); padding-top: 1.5rem; color: var(--text-muted); font-size: 0.95rem; display: flex; flex-direction: column; gap: 0.5rem; }
-  footer#contacto .footer-bottom em { font-style: italic; }
+  footer { background: var(--text-main); color: var(--bg-main); padding: 5rem 5%; display: grid; grid-template-columns: 1.5fr 1fr; gap: 4rem; }
+  footer .brand-col { max-width: 400px; }
+  footer .footer-logo-text { font-family: 'Spectral', serif; font-size: 2.5rem; letter-spacing: 0.15em; color: var(--bg-main); margin-bottom: 1.5rem; display: block; text-decoration: none; }
+  footer .footer-desc { color: rgba(244, 241, 235, 0.7); line-height: 1.8; margin-bottom: 2rem; font-size: 0.95rem; }
+  footer .footer-badge { display: inline-flex; align-items: center; gap: 10px; border: 1px solid rgba(244, 241, 235, 0.2); padding: 8px 16px; border-radius: 50px; font-size: 0.8rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--bg-main); }
+  footer .links-col { display: flex; flex-direction: column; justify-content: space-between; }
+  footer .footer-nav { display: flex; gap: 2rem; list-style: none; padding: 0; margin: 0 0 2rem 0; }
+  footer .footer-nav a { color: var(--bg-main); text-decoration: none; font-size: 0.85rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; opacity: 0.8; transition: opacity 0.3s; }
+  footer .footer-nav a:hover { opacity: 1; color: var(--accent); }
+  footer .footer-address { color: rgba(244, 241, 235, 0.7); font-style: normal; font-size: 0.95rem; line-height: 1.6; }
+  footer .footer-bottom { grid-column: 1 / -1; margin-top: 4rem; padding-top: 2rem; border-top: 1px solid rgba(244, 241, 235, 0.1); display: flex; justify-content: space-between; align-items: center; color: rgba(244, 241, 235, 0.5); font-size: 0.85rem; }
+  @media (max-width: 900px) { footer { grid-template-columns: 1fr; } footer .footer-bottom { flex-direction: column; gap: 1.5rem; text-align: center; } footer .footer-nav { flex-wrap: wrap; } }
 
   /* ── HERO ── */
   #hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; text-align: center; background-image: url('img/hero.png'); background-size: cover; background-position: center; background-repeat: no-repeat; }
@@ -435,55 +436,27 @@
   </div>
 </section>
 
-<section id="contacto" style="background: var(--bg-alt); text-align: center;">
-  <p class="section-label">Te esperamos</p>
-  <h2 class="section-title">Haz tu <em>reserva</em></h2>
-  <div class="divider" style="margin: 0 auto 3rem;"></div>
-  
-  <p class="body-text" style="margin: 0 auto 1rem; font-size: 0.95rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent);">
-    Reserva Telefónica (Vía preferente)
-  </p>
-  <a href="tel:912344556" style="font-family: 'Spectral', serif; font-size: clamp(3rem, 6vw, 5rem); color: var(--text-main); text-decoration: none; display: block; margin-bottom: 3rem;">
-    91 234 45 56
-  </a>
-
-  <div style="display: flex; flex-direction: column; align-items: center; gap: 1rem;">
-    <p class="body-text" style="margin:0; font-family: 'Spectral', serif; font-size: 1.3rem;">📍 Calle de José Abascal, 28 (Cerca Museo Sorolla), Madrid.</p>
-    
-    <div style="display: flex; align-items: center; justify-content: center; gap: 15px; margin-top: 1rem;">
-      <div style="display: flex; align-items: center; gap: 10px; border: 1px solid var(--border); padding: 10px 20px; border-radius: 50px;">
-        <span style="font-size: 1.2rem;">🐾</span>
-        <span style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent);">Dog Friendly</span>
-      </div>
-      <button onclick="handleReserva()" style="display: flex; align-items: center; gap: 10px; background: var(--text-main); color: #fff; padding: 12px 28px; border-radius: 50px; border: none; cursor: pointer; transition: transform 0.3s ease, background 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.background='var(--accent)';" onmouseout="this.style.transform='translateY(0)'; this.style.background='var(--text-main)';">
-        <span style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">Reserva Online</span>
-      </button>
-    </div>
+<footer>
+  <div class="brand-col">
+    <a href="#hero" class="footer-logo-text">DESTELLO</a>
+    <p class="footer-desc">Colaboramos estrechamente con la ONCE para ofrecer una experiencia gastronómica inclusiva, elegante y con un impacto social real en cada mesa.</p>
+    <div class="footer-badge"><span>🐾</span> Dog Friendly</div>
   </div>
-
-  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; text-align: left; max-width: 800px; margin: 4rem auto 3rem; padding-top: 3rem; border-top: 1px solid var(--border);">
-    <div>
-      <h4 style="font-size: 0.85rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; font-family: 'Karla', sans-serif;">Horario</h4>
-      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 0.5rem;">Lunes a jueves: 13:30 – 16:00 / 20:30 – 23:00</p>
-      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 0.5rem;">Viernes y sábado: 13:30 – 16:30 / 20:30 – 23:30</p>
-      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8;">Domingo: 13:30 – 16:00</p>
-    </div>
-    <div>
-      <h4 style="font-size: 0.85rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; font-family: 'Karla', sans-serif;">También te interesa</h4>
-      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 0.5rem;">• Menús en Braille disponibles en sala.</p>
-      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 0.5rem;">• Reproductores de voz en cada mesa.</p>
-      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8;">• Acceso completo con silla de ruedas.</p>
-    </div>
-  </div>
+  <div class="links-col">
+    <ul class="footer-nav">
+      <li><a href="#sobre">Filosofía</a></li>
       <li><a href="#carta">Carta</a></li>
       <li><a href="#historia">Historia</a></li>
-      <li><a href="#contacto">Reservas</a></li>
+      <li><a href="#reservar">Reservar</a></li>
     </ul>
-    <p class="footer-address">Calle de José Abascal, 28, Madrid</p>
-    <div class="footer-bottom">
-      <span>© 2026 Destello</span>
-      <em>Importante: Las fotos de simulación han sido tomadas en el restaurante Camino de Madrid.</em>
-    </div>
+    <address class="footer-address">
+      Calle de José Abascal, 28<br>
+      28003 Madrid
+    </address>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Destello. Todos los derechos reservados.</span>
+    <span style="font-style: italic;">* Proyecto universitario. Simulación grabada en el restaurante Camino de Madrid.</span>
   </div>
 </footer>
 
