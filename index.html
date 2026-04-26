@@ -148,6 +148,13 @@
   .hero-sub { font-family: 'Spectral', serif; font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-style: italic; color: var(--text-muted); margin-bottom: 2rem; position: relative; z-index: 1; }
 
   .premium-img { width: 100%; max-width: 100%; height: auto; border-radius: var(--radius); object-fit: cover; box-shadow: 0 10px 25px rgba(29, 43, 56, 0.1); margin: 0 auto; display: block; }
+  .carta-tabs { display: flex; justify-content: center; flex-wrap: wrap; gap: 0; margin-bottom: 3rem; border-bottom: 1px solid var(--border); }
+  .tab-btn { background: transparent; border: none; color: var(--text-muted); font-family: 'Karla', sans-serif; font-size: 0.9rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; padding: 1rem 2rem; cursor: pointer; border-bottom: 2px solid transparent; margin-bottom: -1px; transition: color 0.3s, border-color 0.3s; }
+  .tab-btn.active { color: var(--accent); border-bottom-color: var(--accent); }
+  .tab-btn:hover { color: var(--text-main); }
+  .tab-content { display: none; animation: fadeIn 0.5s ease; }
+  .tab-content.active { display: block; }
+  @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
 
   /* ── CARTA Y MENÚ ── */
   .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1000px; margin: 0 auto; text-align: left;}
@@ -213,7 +220,6 @@
 </nav>
 
 <section id="hero">
-  <div class="hero-bg"></div>
   <div style="z-index: 10;">
     <p class="section-label">Gastronomía · Empatía · Madrid</p>
     <h1 class="hero-title">Inclusión que se <em>vive</em></h1>
@@ -312,47 +318,140 @@
     <p class="section-label">Tradición y modernidad</p>
     <h2 class="section-title">La <em>Carta</em></h2>
     <div class="divider"></div>
-    
-    <button class="explicit-audio-btn" onclick="speakText('Nuestra carta. Entrantes: Croquetas de rabo de toro, 14 euros. Ensaladilla rusa moderna, 15 euros. Principales: Bacalao al Pil-Pil, 24 euros. Solomillo de Retinto, 28 euros.', 'La Carta')">
+    <button class="explicit-audio-btn" onclick="speakText('Nuestra carta completa incluye entrantes y clásicos españoles, principales de temporada, postres artesanos y una selección de bebidas elegidas para acompañar cada plato.', 'La Carta')">
       <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
       Escuchar la carta
     </button>
   </div>
 
-  <div class="menu-grid">
-    <div class="menu-category">
-      <div class="menu-cat-title">Entrantes</div>
-      <div class="menu-item">
-        <div>
-          <div class="menu-item-name">Croquetas de Rabo de Toro</div>
-          <div class="menu-item-desc">Bechamel cremosa con 12 horas de cocción y rebozado panko.</div>
+  <div class="carta-tabs">
+    <button class="tab-btn active" onclick="switchTab('entrantes', this)">Entrantes</button>
+    <button class="tab-btn" onclick="switchTab('principales', this)">Principales</button>
+    <button class="tab-btn" onclick="switchTab('postres', this)">Postres</button>
+    <button class="tab-btn" onclick="switchTab('bebidas', this)">Bebidas</button>
+  </div>
+
+  <div class="tab-content active" id="tab-entrantes">
+    <div class="menu-grid">
+      <div class="menu-category">
+        <div class="menu-cat-title">Entrantes</div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Croquetas de jamón ibérico</div>
+            <div class="menu-item-desc">Bechamel suave con crujiente panko y jamón de bellota.</div>
+          </div>
+          <div class="menu-item-price">14€</div>
         </div>
-        <div class="menu-item-price">14€</div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Tabla de ibéricos</div>
+            <div class="menu-item-desc">Selección de jabugo, lomo y salchichón con pan de cristal.</div>
+          </div>
+          <div class="menu-item-price">16€</div>
+        </div>
       </div>
-      <div class="menu-item">
-        <div>
-          <div class="menu-item-name">Ensaladilla Rusa Moderna</div>
-          <div class="menu-item-desc">Ventresca de atún, pimientos asados a la leña y polvo de aceituna negra.</div>
+      <div class="menu-category">
+        <div class="menu-cat-title">Clásicos</div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Ensaladilla Rusa Moderna</div>
+            <div class="menu-item-desc">Ventresca de atún, pimientos asados y polvo de aceituna negra.</div>
+          </div>
+          <div class="menu-item-price">15€</div>
         </div>
-        <div class="menu-item-price">15€</div>
       </div>
     </div>
+  </div>
 
-    <div class="menu-category">
-      <div class="menu-cat-title">Principales</div>
-      <div class="menu-item">
-        <div>
-          <div class="menu-item-name">Bacalao al Pil-Pil</div>
-          <div class="menu-item-desc">Lomo desalado con emulsión de ajos negros y sutil guindilla dulce.</div>
+  <div class="tab-content" id="tab-principales">
+    <div class="menu-grid">
+      <div class="menu-category">
+        <div class="menu-cat-title">Principales</div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Cocido madrileño</div>
+            <div class="menu-item-desc">Fondo lento con garbanzos, verduras y carne de primera.</div>
+          </div>
+          <div class="menu-item-price">22€</div>
         </div>
-        <div class="menu-item-price">24€</div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Bacalao al Pil-Pil</div>
+            <div class="menu-item-desc">Lomo desalado con emulsión de ajos negros y guindilla dulce.</div>
+          </div>
+          <div class="menu-item-price">24€</div>
+        </div>
       </div>
-      <div class="menu-item">
-        <div>
-          <div class="menu-item-name">Solomillo de Retinto</div>
-          <div class="menu-item-desc">Reducción de vino tinto, puré de patata trufado y setas de temporada.</div>
+      <div class="menu-category">
+        <div class="menu-cat-title">Carnes</div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Solomillo de Retinto</div>
+            <div class="menu-item-desc">Reducción de vino tinto, puré trufado y setas de temporada.</div>
+          </div>
+          <div class="menu-item-price">28€</div>
         </div>
-        <div class="menu-item-price">28€</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="tab-postres">
+    <div class="menu-grid">
+      <div class="menu-category">
+        <div class="menu-cat-title">Postres</div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Torrija de brioche</div>
+            <div class="menu-item-desc">Caramelizada con crema de vainilla y naranja confitada.</div>
+          </div>
+          <div class="menu-item-price">10€</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Crema de queso y frutos rojos</div>
+            <div class="menu-item-desc">Textura sedosa con compota de frutos rojos y crumble de almendra.</div>
+          </div>
+          <div class="menu-item-price">9€</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-content" id="tab-bebidas">
+    <div class="menu-grid">
+      <div class="menu-category">
+        <div class="menu-cat-title">Vinos</div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Vino tinto reserva</div>
+            <div class="menu-item-desc">Notas de frutos negros y especias, copa perfecta para carnes.</div>
+          </div>
+          <div class="menu-item-price">12€</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Copa de champán</div>
+            <div class="menu-item-desc">Fresco y elegante, ideal para iniciar o brindar.</div>
+          </div>
+          <div class="menu-item-price">14€</div>
+        </div>
+      </div>
+      <div class="menu-category">
+        <div class="menu-cat-title">Sin alcohol</div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Agua mineral</div>
+            <div class="menu-item-desc">Selección natural o con gas.</div>
+          </div>
+          <div class="menu-item-price">4€</div>
+        </div>
+        <div class="menu-item">
+          <div>
+            <div class="menu-item-name">Limonada casera</div>
+            <div class="menu-item-desc">Refrescante con hierbabuena y toque de miel.</div>
+          </div>
+          <div class="menu-item-price">6€</div>
+        </div>
       </div>
     </div>
   </div>
@@ -511,6 +610,13 @@
       iconPause.style.display = 'none';
       iconPlay.style.display = 'block';
     }
+  }
+
+  function switchTab(name, btn) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + name).classList.add('active');
+    btn.classList.add('active');
   }
 
   function stopAudio() {
