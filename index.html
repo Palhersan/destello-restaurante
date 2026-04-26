@@ -8,21 +8,15 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Karla:ital,wght@0,300;0,400;0,700;1,400&family=Spectral:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
 
-<!-- 🤖 INSTRUCCIÓN PARA COPILOT: 
-  Este proyecto prioriza la accesibilidad y el diseño Premium luminoso.
-  Bajo ninguna circunstancia rompas el sistema de variables CSS de contraste.
-  Al generar imágenes, respeta los prompts editoriales indicados en los placeholders. 
--->
-
 <style>
   /* ── VARIABLES BASE (TEMA LUMINOSO Y AZUL) ── */
   :root {
-    --bg-main: #FFFFFF;        /* Fondo principal muy luminoso */
-    --bg-alt: #F4F7F9;         /* Fondo alternativo (azul muy pálido) */
-    --text-main: #0B2447;      /* Azul marino profundo para máxima legibilidad */
-    --text-muted: #19376D;     /* Azul medio para textos secundarios */
-    --accent: #00509E;         /* Azul vibrante para elementos de acción */
-    --accent-light: #EBF4FA;   /* Azul hielo para resaltes (modo lectura) */
+    --bg-main: #FFFFFF;
+    --bg-alt: #F4F7F9;
+    --text-main: #0B2447;
+    --text-muted: #19376D;
+    --accent: #00509E;
+    --accent-light: #EBF4FA;
     --border: rgba(11, 36, 71, 0.15);
     --radius: 4px;
     --base-size: 18px;         
@@ -45,13 +39,30 @@
   html { scroll-behavior: smooth; font-size: var(--base-size); transition: font-size 0.3s ease; }
   body { background: var(--bg-main); color: var(--text-main); font-family: 'Karla', sans-serif; font-weight: 400; overflow-x: hidden; transition: background-color 0.4s, color 0.4s; }
 
-  /* ── TIPOGRAFÍA SPECTRAL (TITULARES PREMIUM) ── */
   h1, h2, h3, h4, h5, h6, .nav-logo, .menu-item-name, .menu-item-price { font-family: 'Spectral', serif; font-weight: 400; }
 
-  /* ── CLASE PARA LECTURA GUIADA ── */
   .reading-active { outline: 2px solid var(--accent); background: var(--accent-light); border-radius: var(--radius); transition: all 0.3s ease; }
 
-  /* ── PANEL DE ACCESIBILIDAD ── */
+  /* ── BOTONES DE AUDIO EXPLÍCITOS (ACCESIBILIDAD DIRECTA) ── */
+  .explicit-audio-btn {
+    display: inline-flex; align-items: center; gap: 10px;
+    background: var(--text-main); color: #FFFFFF;
+    border: 2px solid var(--text-main);
+    padding: 12px 28px; border-radius: 50px;
+    font-family: 'Karla', sans-serif; font-weight: 700; font-size: 0.9rem;
+    text-transform: uppercase; letter-spacing: 0.1em;
+    cursor: pointer; transition: all 0.3s ease;
+    margin-top: 1.5rem;
+  }
+  .explicit-audio-btn:hover {
+    background: var(--accent); border-color: var(--accent); transform: translateY(-2px);
+  }
+  body.high-contrast .explicit-audio-btn {
+    background: transparent; color: var(--text-main); border-color: var(--text-main);
+  }
+  body.high-contrast .explicit-audio-btn:hover { background: var(--text-main); color: #000; }
+
+  /* ── PANEL DE ACCESIBILIDAD FLOTANTE ── */
   .a11y-fab { position: fixed; bottom: 24px; left: 24px; z-index: 2000; }
   .a11y-btn { background: var(--accent); color: #FFFFFF; border: none; width: 56px; height: 56px; border-radius: 50%; display: flex; align-items: center; justify-content: center; cursor: pointer; box-shadow: 0 4px 12px rgba(0,0,0,0.15); transition: transform 0.3s, background 0.3s; }
   .a11y-btn:hover { transform: scale(1.05); background: var(--text-main); }
@@ -81,8 +92,6 @@
   .ctrl-btn:hover { background: rgba(255,255,255,0.2); }
   body.high-contrast .ctrl-btn:hover { background: var(--accent-light); }
   .ctrl-btn svg { width: 18px; height: 18px; fill: currentColor; }
-  .speed-btn { background: transparent; border: 1px solid #8BA8D0; color: #FFFFFF; border-radius: 20px; padding: 4px 12px; font-size: 0.75rem; cursor: pointer; font-weight: bold; }
-  body.high-contrast .speed-btn { border-color: var(--border); color: var(--text-main); }
 
   /* ── NAV ── */
   nav { position: fixed; top: 0; left: 0; right: 0; z-index: 900; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 5%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
@@ -103,30 +112,27 @@
   .body-text { font-size: 1.1rem; line-height: 1.85; color: var(--text-muted); margin-bottom: 1.5rem; }
   .body-text strong { color: var(--text-main); font-weight: 700; }
 
-  /* ── GRID ESTRUCTURAL ── */
+  /* ── GRIDS ── */
   .split-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 5rem; align-items: center; }
   .split-grid.reverse .text-col { order: 2; }
   .split-grid.reverse .img-col { order: 1; }
-
-  /* ── GRID CARACTERÍSTICAS (UNA MESA PENSADA PARA TI) ── */
   .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; margin-top: 4rem; }
   .feature-item { background: var(--bg-main); border: 1px solid var(--border); padding: 2rem; border-radius: var(--radius); text-align: left; transition: transform 0.3s; }
   .feature-item:hover { transform: translateY(-5px); box-shadow: 0 10px 20px rgba(11,36,71,0.05); }
   .feature-icon { font-size: 2rem; margin-bottom: 1.5rem; }
   .feature-title { font-family: 'Spectral', serif; font-size: 1.5rem; color: var(--text-main); margin-bottom: 1rem; }
 
-  /* ── IMÁGENES PROMPT IA (EDITORIAL) ── */
+  /* ── IMÁGENES PROMPT IA ── */
   .ai-image-placeholder { width: 100%; background: var(--bg-alt); border: 1px dashed var(--accent); display: flex; flex-direction: column; align-items: center; justify-content: center; padding: 3rem 2rem; text-align: center; position: relative; overflow: hidden; border-radius: var(--radius); }
   .ai-icon { font-size: 2rem; margin-bottom: 1rem; opacity: 0.8; }
   .ai-prompt-title { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.2em; color: var(--accent); margin-bottom: 1rem; font-weight: 700; }
   .ai-prompt-text { font-family: 'Spectral', serif; font-size: 1.2rem; font-style: italic; color: var(--text-main); line-height: 1.5; max-width: 90%; }
-  .img-col img { width: 100%; height: auto; display: block; border-radius: var(--radius); object-fit: cover; box-shadow: 0 18px 45px rgba(11, 36, 71, 0.08); }
 
   /* ── HERO ── */
   #hero { min-height: 100vh; display: flex; align-items: center; justify-content: center; position: relative; text-align: center; }
   .hero-bg { position: absolute; inset: 0; background: radial-gradient(ellipse 70% 70% at 50% 50%, var(--bg-main) 0%, var(--bg-alt) 100%); z-index: -1; }
   .hero-title { font-size: clamp(4rem, 8vw, 7rem); line-height: 1.0; margin-bottom: 1.5rem; color: var(--text-main); }
-  .hero-sub { font-family: 'Spectral', serif; font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-style: italic; color: var(--text-muted); margin-bottom: 3rem; }
+  .hero-sub { font-family: 'Spectral', serif; font-size: clamp(1.4rem, 2.5vw, 1.8rem); font-style: italic; color: var(--text-muted); margin-bottom: 2rem; }
 
   /* ── CARTA Y MENÚ ── */
   .menu-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; max-width: 1000px; margin: 0 auto; text-align: left;}
@@ -137,7 +143,6 @@
   .menu-item-desc { font-size: 0.95rem; color: var(--text-muted); line-height: 1.5; font-family: 'Karla', sans-serif;}
   .menu-item-price { font-size: 1.2rem; color: var(--accent); }
 
-  /* ── RESPONSIVE ── */
   @media (max-width: 900px) {
     .split-grid, .menu-grid { grid-template-columns: 1fr; gap: 3rem; }
     .split-grid.reverse .text-col { order: 1; }
@@ -150,17 +155,12 @@
 </head>
 <body>
 
-<!-- ── PANEL DE ACCESIBILIDAD FLOTANTE ── -->
 <div class="a11y-fab" id="a11yFab">
   <button class="a11y-btn" onclick="toggleA11yMenu()" aria-label="Abrir herramientas de accesibilidad">
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"></circle><circle cx="12" cy="10" r="3"></circle><path d="M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"></path></svg>
   </button>
   <div class="a11y-menu">
-    <div class="a11y-menu-title">Experiencia Inclusiva</div>
-    <button class="a11y-option" onclick="toggleGuidedReading()" id="btnGuide">
-      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
-      Asistente de Lectura (Guiarme)
-    </button>
+    <div class="a11y-menu-title">Accesibilidad Visual</div>
     <button class="a11y-option" onclick="toggleHighContrast()" id="btnContrast">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
       Alto Contraste
@@ -172,14 +172,12 @@
   </div>
 </div>
 
-<!-- ── REPRODUCTOR DE AUDIO ── -->
 <div class="audio-player" id="audioPlayer">
   <div class="audio-status">
     <span class="audio-label" id="audioStateLabel">Reproduciendo</span>
-    <span class="audio-text" id="audioSectionName">Bienvenida...</span>
+    <span class="audio-text" id="audioSectionName">Audio...</span>
   </div>
   <div class="audio-controls">
-    <button class="speed-btn" onclick="cycleSpeed()" id="btnSpeed">1x</button>
     <button class="ctrl-btn" onclick="pauseResumeAudio()" id="btnPauseResume">
       <svg id="iconPause" viewBox="0 0 24 24"><rect x="6" y="4" width="4" height="16"></rect><rect x="14" y="4" width="4" height="16"></rect></svg>
       <svg id="iconPlay" viewBox="0 0 24 24" style="display:none;"><polygon points="5 3 19 12 5 21 5 3"></polygon></svg>
@@ -188,7 +186,6 @@
   </div>
 </div>
 
-<!-- ── NAV ── -->
 <nav>
   <a href="#hero" class="nav-logo">DESTELLO</a>
   <ul class="nav-links">
@@ -200,18 +197,21 @@
   </ul>
 </nav>
 
-<!-- ── HERO ── -->
-<section id="hero" data-speak="Bienvenido a Destello. Inclusión que se vive. Lo esencial es invisible a los ojos. Desliza hacia abajo para descubrir nuestra filosofía." data-section-name="Bienvenida">
+<section id="hero">
   <div class="hero-bg"></div>
-  <div>
+  <div style="z-index: 10;">
     <p class="section-label">Gastronomía · Empatía · Madrid</p>
     <h1 class="hero-title">Inclusión que se <em>vive</em></h1>
     <p class="hero-sub">«Lo esencial es invisible a los ojos»</p>
+    
+    <button class="explicit-audio-btn" onclick="speakText('Bienvenido a Destello. Un espacio donde lo esencial es invisible a los ojos. Somos un restaurante de alta cocina española diseñado para que todas las personas, con o sin discapacidad visual, vivan una experiencia gastronómica plena. Nuestro equipo, formado por la ONCE, está a tu disposición para acompañarte en cada momento. Te invitamos a descubrir la luz que nace de la oscuridad.', 'Bienvenida')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+      Escuchar Bienvenida
+    </button>
   </div>
 </section>
 
-<!-- ── FILOSOFÍA ── -->
-<section id="sobre" class="split-grid" style="background: var(--bg-main);" data-speak="Sobre nosotros. Gastronomía que se siente, inclusión que se vive. En Destello, la excelencia culinaria se encuentra con la inclusión. Diseñado meticulosamente para ofrecer una experiencia plena a personas ciegas y una oportunidad de empatizar para el resto de nuestros comensales." data-section-name="Nuestra Filosofía">
+<section id="sobre" class="split-grid" style="background: var(--bg-main);">
   <div class="text-col">
     <p class="section-label">Sobre Nosotros</p>
     <h2 class="section-title">Una mesa para <em>todos</em></h2>
@@ -224,12 +224,17 @@
     </p>
   </div>
   <div class="img-col">
-    <img src="img/hero-destello.svg" alt="Cena inclusiva y elegante en Destello con amigos diversos, un bastón elegante apoyado y manos compartiendo un plato" loading="lazy" width="720" height="900">
+    <div class="ai-image-placeholder" style="aspect-ratio: 4/5;">
+      <div class="ai-icon">🍽️</div>
+      <div class="ai-prompt-title">Directriz para IA (Prompt)</div>
+      <div class="ai-prompt-text">
+        "Grupo de amigos diversos cenando en un restaurante elegante, compartiendo risas. Ambiente muy luminoso, tonos blancos y azules marinos. Inclusión sutil: un bastón elegante apoyado o una mano explorando un plato. Fotografía editorial gastronómica, luz natural suave."
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ── UNA MESA PENSADA PARA TI ── -->
-<section id="detalles" style="background: var(--bg-alt);" data-speak="Una mesa pensada para ti. Cada detalle ha sido diseñado para la autonomía. Atención experta de la ONCE. Diseño acústico sensorial. Cartas en Braille y voz. Espacios podotáctiles. Vajilla adaptada y sistema de reloj para ingredientes. Perros guía bienvenidos." data-section-name="Diseño Inclusivo">
+<section id="detalles" style="background: var(--bg-alt);">
   <div class="content-wrapper">
     <p class="section-label">Arquitectura del espacio</p>
     <h2 class="section-title">Una mesa pensada <em>para ti</em></h2>
@@ -273,8 +278,7 @@
   </div>
 </section>
 
-<!-- ── EXPERIENCIA INMERSIVA ── -->
-<section id="experiencia" class="split-grid reverse" style="background: var(--bg-main);" data-speak="El desafío de los sentidos. Te invitamos a ver el mundo con otros ojos, cerrándolos. Al sentarte, encontrarás un antifaz elegante. Sumérgete en el prestigio sensorial para potenciar tu gusto, olfato y empatía." data-section-name="Experiencia Inmersiva">
+<section id="experiencia" class="split-grid reverse" style="background: var(--bg-main);">
   <div class="text-col">
     <p class="section-label">Mucho más que una cena</p>
     <h2 class="section-title">El desafío de los <em>sentidos</em></h2>
@@ -290,22 +294,31 @@
     </p>
   </div>
   <div class="img-col">
-    <img src="img/antifaz-sensorial.svg" alt="Antifaz de seda azul marino sobre mantel blanco con cubiertos plateados, estilo minimalista y lujoso" loading="lazy" width="800" height="600">
+    <div class="ai-image-placeholder" style="aspect-ratio: 4/3;">
+      <div class="ai-icon">🎭</div>
+      <div class="ai-prompt-title">Directriz para IA (Prompt)</div>
+      <div class="ai-prompt-text">
+        "Fotografía cenital de alta calidad y muy luminosa. Un antifaz de seda color azul marino reposando sobre un mantel de lino blanco inmaculado junto a unos cubiertos de plata modernos. Estilo minimalista, lujo y prestigio sensorial. Evitar que parezca un juego."
+      </div>
+    </div>
   </div>
 </section>
 
-<!-- ── LA CARTA ── -->
-<section id="carta" style="background: var(--bg-alt);" data-speak="Nuestra Carta. Entrantes: Croquetas de rabo de toro, 14 euros. Ensaladilla rusa moderna, 15 euros. Principales: Bacalao al Pil-Pil, 24 euros. Solomillo de Retinto, 28 euros." data-section-name="La Carta">
+<section id="carta" style="background: var(--bg-alt);">
   <div class="content-wrapper" style="margin-bottom: 4rem;">
     <p class="section-label">Tradición y modernidad</p>
     <h2 class="section-title">La <em>Carta</em></h2>
     <div class="divider"></div>
+    
+    <button class="explicit-audio-btn" onclick="speakText('Nuestra carta. Entrantes: Croquetas de rabo de toro, 14 euros. Ensaladilla rusa moderna, 15 euros. Principales: Bacalao al Pil-Pil, 24 euros. Solomillo de Retinto, 28 euros.', 'La Carta')">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg>
+      Escuchar la carta
+    </button>
   </div>
 
   <div class="menu-grid">
     <div class="menu-category">
       <div class="menu-cat-title">Entrantes</div>
-      
       <div class="menu-item">
         <div>
           <div class="menu-item-name">Croquetas de Rabo de Toro</div>
@@ -313,7 +326,6 @@
         </div>
         <div class="menu-item-price">14€</div>
       </div>
-
       <div class="menu-item">
         <div>
           <div class="menu-item-name">Ensaladilla Rusa Moderna</div>
@@ -325,7 +337,6 @@
 
     <div class="menu-category">
       <div class="menu-cat-title">Principales</div>
-      
       <div class="menu-item">
         <div>
           <div class="menu-item-name">Bacalao al Pil-Pil</div>
@@ -333,7 +344,6 @@
         </div>
         <div class="menu-item-price">24€</div>
       </div>
-
       <div class="menu-item">
         <div>
           <div class="menu-item-name">Solomillo de Retinto</div>
@@ -345,13 +355,11 @@
   </div>
 </section>
 
-<!-- ── HISTORIA Y COMPROMISO (NUEVO) ── -->
-<section id="historia" class="split-grid" style="background: var(--bg-main);" data-speak="Nuestra historia y compromiso. Colaboramos directamente con la ONCE. Cada plato incluye una pequeña aportación a proyectos que transforman la vida de miles de personas. Tu elección alimenta el cambio." data-section-name="Nuestra Historia">
+<section id="historia" class="split-grid" style="background: var(--bg-main);">
   <div class="text-col">
     <p class="section-label">Nuestra Historia</p>
     <h2 class="section-title">El origen de <em>Destello</em></h2>
     <div class="divider" style="margin-left: 0;"></div>
-    <!-- 🤖 INSTRUCCIÓN PARA COPILOT: Si el usuario te pide ampliar la historia de los fundadores, hazlo aquí manteniendo el tono corporativo premium -->
     <p class="body-text">
       Destello nació de una experiencia personal profunda. Sus fundadores comprendieron que la exclusión en la alta gastronomía a menudo es invisible para quienes no la padecen.
     </p>
@@ -374,8 +382,7 @@
   </div>
 </section>
 
-<!-- ── CONTACTO Y RESERVAS ── -->
-<section id="contacto" style="background: var(--bg-alt); text-align: center;" data-speak="Contacto y Reservas. Vía preferente por teléfono al 91 234 45 56. Calle de José Abascal, 28, Madrid. Establecimiento Dog Friendly, perros guía bienvenidos." data-section-name="Contacto">
+<section id="contacto" style="background: var(--bg-alt); text-align: center;">
   <p class="section-label">Te esperamos</p>
   <h2 class="section-title">Haz tu <em>reserva</em></h2>
   <div class="divider" style="margin: 0 auto 3rem;"></div>
@@ -407,34 +414,26 @@
   </div>
 </section>
 
-<!-- ── JAVASCRIPT: MOTOR DE ACCESIBILIDAD Y AUDIO AVANZADO ── -->
 <script>
   const state = {
     highContrast: false,
     largeText: false,
-    guidedMode: false,
-    speechRate: 1.0,
     isSpeaking: false,
-    isPaused: false,
-    speakBlocks: [],
-    currentBlockIdx: -1
+    isPaused: false
   };
 
   const body = document.body;
   const a11yFab = document.getElementById('a11yFab');
   const btnContrast = document.getElementById('btnContrast');
   const btnTextSize = document.getElementById('btnTextSize');
-  const btnGuide = document.getElementById('btnGuide');
   
   const audioPlayer = document.getElementById('audioPlayer');
   const audioStateLabel = document.getElementById('audioStateLabel');
   const audioSectionName = document.getElementById('audioSectionName');
-  const btnSpeed = document.getElementById('btnSpeed');
   const iconPause = document.getElementById('iconPause');
   const iconPlay = document.getElementById('iconPlay');
 
   window.onload = () => {
-    state.speakBlocks = Array.from(document.querySelectorAll('[data-speak]'));
     if ('speechSynthesis' in window) { window.speechSynthesis.cancel(); }
   };
 
@@ -452,13 +451,14 @@
     btnTextSize.classList.toggle('active', state.largeText);
   }
 
-  function speakText(text, sectionName, element) {
+  // Lógica del botón de audio explícito
+  function speakText(text, sectionName) {
     if (!('speechSynthesis' in window)) return alert('Tu navegador no soporta síntesis de voz.');
     window.speechSynthesis.cancel();
     
     const utterance = new SpeechSynthesisUtterance(text);
     utterance.lang = 'es-ES';
-    utterance.rate = state.speechRate;
+    utterance.rate = 1.0;
     
     audioSectionName.textContent = sectionName;
     audioStateLabel.textContent = "Reproduciendo";
@@ -468,23 +468,7 @@
     state.isSpeaking = true;
     state.isPaused = false;
 
-    state.speakBlocks.forEach(el => el.classList.remove('reading-active'));
-    if (element) {
-      element.classList.add('reading-active');
-      element.scrollIntoView({ behavior: 'smooth', block: 'center' });
-    }
-
-    utterance.onend = () => {
-      if (element) element.classList.remove('reading-active');
-      if (state.guidedMode) {
-        state.currentBlockIdx++;
-        if (state.currentBlockIdx < state.speakBlocks.length) {
-          const nextEl = state.speakBlocks[state.currentBlockIdx];
-          speakText(nextEl.getAttribute('data-speak'), nextEl.getAttribute('data-section-name'), nextEl);
-        } else { stopAudio(); }
-      } else { stopAudio(); }
-    };
-
+    utterance.onend = () => { stopAudio(); };
     window.speechSynthesis.speak(utterance);
   }
 
@@ -509,35 +493,7 @@
     window.speechSynthesis.cancel();
     state.isSpeaking = false;
     state.isPaused = false;
-    state.guidedMode = false;
-    state.currentBlockIdx = -1;
     audioPlayer.classList.remove('visible');
-    btnGuide.classList.remove('active');
-    btnGuide.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polygon points="11 5 6 9 2 9 2 15 6 15 11 19 11 5"></polygon><path d="M15.54 8.46a5 5 0 0 1 0 7.07"></path></svg> Asistente de Lectura`;
-    state.speakBlocks.forEach(el => el.classList.remove('reading-active'));
-  }
-
-  function cycleSpeed() {
-    if (state.speechRate === 1.0) state.speechRate = 1.2;
-    else if (state.speechRate === 1.2) state.speechRate = 1.5;
-    else state.speechRate = 1.0;
-    btnSpeed.textContent = state.speechRate + 'x';
-    if (state.isSpeaking && !state.isPaused && state.currentBlockIdx >= 0) {
-      const currentEl = state.speakBlocks[state.currentBlockIdx];
-      speakText(currentEl.getAttribute('data-speak'), currentEl.getAttribute('data-section-name'), currentEl);
-    }
-  }
-
-  function toggleGuidedReading() {
-    if (state.guidedMode) { stopAudio(); } else {
-      state.guidedMode = true;
-      state.currentBlockIdx = 0;
-      btnGuide.classList.add('active');
-      btnGuide.innerHTML = `<svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="6" y="6" width="12" height="12"></rect></svg> Detener Asistente`;
-      a11yFab.classList.remove('open');
-      const firstEl = state.speakBlocks[0];
-      speakText(firstEl.getAttribute('data-speak'), firstEl.getAttribute('data-section-name'), firstEl);
-    }
   }
 </script>
 </body>
