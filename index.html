@@ -219,7 +219,7 @@
     <li><a href="#detalles">Diseño</a></li>
     <li><a href="#experiencia">Experiencia</a></li>
     <li><a href="#carta">La Carta</a></li>
-    <li><a href="#contacto">Reservas</a></li>
+    <li><a href="#reservas">Reservas</a></li>
   </ul>
 </nav>
 
@@ -434,6 +434,43 @@
       Consulta nuestro informe de impacto anual
     </a>
   </div>
+
+</section>
+
+<section id="reservas" style="background: var(--bg-alt); text-align: center; padding: 6rem 5%;">
+  <p class="section-label">Te esperamos</p>
+  <h2 class="section-title">Haz tu <em>reserva</em></h2>
+  <div class="divider" style="margin: 0 auto 3rem;"></div>
+
+  <p style="margin: 0 auto 1rem; font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; color: var(--accent);">Reserva Telefónica (Vía preferente)</p>
+  <a href="tel:912344556" style="font-family: 'Spectral', serif; font-size: clamp(4rem, 8vw, 6rem); color: var(--text-main); text-decoration: none; display: block; margin-bottom: 3rem; line-height: 1;">91 234 45 56</a>
+
+  <p style="font-family: 'Spectral', serif; font-size: 1.2rem; color: var(--text-muted); margin-bottom: 3rem;">📍 Calle de José Abascal, 28 (Cerca Museo Sorolla), Madrid.</p>
+
+  <div style="display: flex; align-items: center; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 4rem;">
+    <div style="display: flex; align-items: center; gap: 10px; border: 1px solid var(--border); padding: 12px 24px; border-radius: 50px; color: var(--text-main);">
+      <span style="font-size: 1.2rem;">🐾</span>
+      <span style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">Dog Friendly</span>
+    </div>
+    <button onclick="handleReserva()" style="display: flex; align-items: center; gap: 10px; background: var(--text-main); color: var(--bg-main); padding: 14px 28px; border-radius: 50px; border: none; cursor: pointer; transition: transform 0.3s ease, background 0.3s ease;" onmouseover="this.style.transform='translateY(-2px)'; this.style.background='var(--accent)';" onmouseout="this.style.transform='translateY(0)'; this.style.background='var(--text-main)';">
+      <span style="font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em;">Reserva Online</span>
+    </button>
+  </div>
+
+  <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 3rem; text-align: left; max-width: 800px; margin: 0 auto; padding-top: 3rem; border-top: 1px solid var(--border);">
+    <div>
+      <h4 style="font-size: 0.85rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; font-family: 'Karla', sans-serif;">Horario</h4>
+      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 0.5rem;">Lunes a jueves: 13:30 – 16:00 / 20:30 – 23:00</p>
+      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 0.5rem;">Viernes y sábado: 13:30 – 16:30 / 20:30 – 23:30</p>
+      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8;">Domingo: 13:30 – 16:00</p>
+    </div>
+    <div>
+      <h4 style="font-size: 0.85rem; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; font-family: 'Karla', sans-serif;">También te interesa</h4>
+      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 0.5rem;">• Menús en Braille disponibles en sala.</p>
+      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8; margin-bottom: 0.5rem;">• Reproductores de voz en cada mesa.</p>
+      <p style="color: var(--text-muted); font-size: 0.95rem; line-height: 1.8;">• Acceso completo con silla de ruedas.</p>
+    </div>
+  </div>
 </section>
 
 <footer>
@@ -560,5 +597,6 @@
     audioPlayer.classList.remove('visible');
   }
 </script>
+<div class="notif" id="notif"></div>
 </body>
 </html>
