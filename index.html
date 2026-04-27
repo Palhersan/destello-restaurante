@@ -94,9 +94,10 @@
   .ctrl-btn svg { width: 18px; height: 18px; fill: currentColor; }
 
   /* ── NAV ── */
-  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 900; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 5%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); }
+  nav { position: fixed; top: 0; left: 0; right: 0; z-index: 900; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 5%; background: rgba(255, 255, 255, 0.95); backdrop-filter: blur(8px); border-bottom: 1px solid var(--border); position: relative; }
   body.high-contrast nav { background: var(--bg-main); }
-  .nav-logo { font-size: 1.8rem; letter-spacing: 0.15em; color: var(--accent); text-decoration: none; }
+  .nav-logo { position: absolute; left: 50%; transform: translateX(-50%); display: block; }
+  .nav-logo img { display: block; height: 45px; width: auto; }
   .nav-links { display: flex; gap: 2.5rem; list-style: none; }
   .nav-links a { color: var(--text-main); text-decoration: none; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; opacity: 0.8; transition: opacity 0.3s, color 0.3s;}
   .nav-links a:hover { opacity: 1; color: var(--accent); }
@@ -213,7 +214,7 @@
 </div>
 
 <nav>
-  <a href="#hero" class="nav-logo"><img src="img/logo.png" alt="Logotipo Destello" style="height: 45px; width: auto;"></a>
+  <a href="#hero" class="nav-logo"><img src="img/logo.jpg" alt="Logotipo Destello"></a>
   <ul class="nav-links">
     <li><a href="#sobre">Filosofía</a></li>
     <li><a href="#detalles">Diseño</a></li>
